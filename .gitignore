@@ -13,4 +13,7 @@ build
 *~
 *.swp
 *.swo
-
+.idea/
+project.iml
+*.DS_Store
+cmake-build-debug/
