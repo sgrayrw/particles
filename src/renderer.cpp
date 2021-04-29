@@ -128,7 +128,7 @@ void Renderer::quad(const glm::vec3& pos, const glm::vec4& color, float size)
    glUniform4f(glGetUniformLocation(mShaderId, "uColor"), color[0], color[1], color[2], color[3]);
    glUniform1f(glGetUniformLocation(mShaderId, "uSize"), size);
 
-    mat4 translateMat = translate(mat4(1.0), pos - vec3(0.5, 0.5, 0));
+    mat4 translateMat = translate(mat4(1.0), - vec3(.5f, .5f, 0));
     mat4 scaleMat = scale(mat4(1.0), vec3(size));
 
     vec3 z = normalize(cameraPosition() - vec3(0.5, 0.5, 0));
@@ -136,7 +136,9 @@ void Renderer::quad(const glm::vec3& pos, const glm::vec4& color, float size)
     vec3 y = normalize(cross(z, x));
     mat4 rotationMat(mat3(x, y, z));
 
-    mat4 model = rotationMat * scaleMat * translateMat;
+    mat4 translate2 = translate(mat4(1.0), pos);
+
+    mat4 model = translate2 * rotationMat * scaleMat * translateMat;
 
     glUniformMatrix4fv(glGetUniformLocation(mShaderId, "uM"), 1, GL_FALSE, &model[0][0]);
 
