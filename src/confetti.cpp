@@ -43,13 +43,6 @@ void Confetti::update(float dt) {
 
         // sort
         vec3 cameraPos = theRenderer.cameraPosition();
-        //for (int i = 1; i < mParticles.size(); ++i) {
-        //    float d1 = distance(mParticles[i].pos, cameraPos);
-        //    float d2 = distance(mParticles[i - 1].pos, cameraPos);
-        //    if (d2 < d1) {
-        //        swap(mParticles[i], mParticles[i - 1]);
-        //    }
-        //}
         sort(mParticles.begin(), mParticles.end(),
              [&](const Particle& p1, const Particle& p2) -> bool {
             return distance(p1.pos, cameraPos) > distance(p2.pos, cameraPos);
