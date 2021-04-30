@@ -2,7 +2,12 @@
 
 Implements particle systems using openGL
 
-TODO: Add a representative image for your project here
+## Unique demo
+
+A "Snake Game" made with a square particle travelling horizontally and vertically. Up/down/left/right keys are used
+to control the direction the snake is heading. The snake leaves a trail and can wrap around the window!
+
+https://user-images.githubusercontent.com/43045651/116641250-58ec2380-a93a-11eb-97b7-ee4aab78d94e.mov
 
 ## How to build
 
